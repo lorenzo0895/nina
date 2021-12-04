@@ -1,5 +1,6 @@
 package com.estudiospallione.nina.controllers;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -128,7 +129,7 @@ public class CajaController {
 		List<Fecha> listaFechas = fechaServicio.listarFechasAbiertas();
 		List<Cliente> listaClientes = clienteServicio.listarClientesAlfabeticamente();
 		List<Concepto> listaConceptos = conceptoServicio.listarConceptosAlfabeticamente();
-		List<Cheque> listaCheques = chequeServicio.listarCheques();
+		List<Cheque> listaCheques = chequeServicio.listarChequesSinCaja();
 		model.addAttribute("fechas", listaFechas);
 		model.addAttribute("clientes", listaClientes);
 		model.addAttribute("conceptos", listaConceptos);
@@ -143,20 +144,23 @@ public class CajaController {
 			@RequestParam(required = false) String detalle,
 			@RequestParam(defaultValue = "0") Double efectivo,
 			@RequestParam(defaultValue = "0") Double transferencia,
-			@RequestParam(required = false) Cheque cheque1,
-			@RequestParam(required = false) Cheque cheque2,
-			@RequestParam(required = false) Cheque cheque3,
-			@RequestParam(required = false) Cheque cheque4) {
+			@RequestParam(required = false, value="cheque[]") Cheque[] cheques) {
 
 		// SI EL USUARIO NO TIENE PERMISOS LO REDIRECCIONAMOS A LA PRINCIPAL
 		Usuario usuario = (Usuario) httpSession.getAttribute("usersession");
 		if (!usuario.getPermiso_ingresar()) {
 			return "redirect:/aft";
 		}
+		List<Cheque> listaCheques = new ArrayList<Cheque>();
+		for (Cheque cheque : cheques) {
+			listaCheques.add(cheque);
+		}
+		System.out.println(listaCheques);
+		System.out.println("");
 
 		// CREAMOS CAJA
 		try {
-			cajaServicio.alta(fecha, cliente, detalle, efectivo, transferencia, null, null);
+			cajaServicio.alta(fecha, cliente, detalle, efectivo, transferencia, listaCheques, null);
 			return "redirect:/aft";
 		} catch (ErrorException e) {
 			redirectAttributes.addFlashAttribute("error", e.getMessage())

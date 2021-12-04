@@ -25,7 +25,7 @@ public class Cheque {
 	private String sucursal;
 	private Long cuit;
 	private Float importe;
-	@ManyToOne
+	@ManyToOne()
 	private Caja caja;
 	
 	public Cheque() {
@@ -90,6 +90,11 @@ public class Cheque {
 	}
 	public void setCaja(Caja caja) {
 		this.caja = caja;
+	}
+
+	@Override
+	public String toString() {
+		return "Cheque id_cheque=" + id_cheque;
 	}
 	
 	

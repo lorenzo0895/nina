@@ -1,11 +1,13 @@
 package com.estudiospallione.nina.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.estudiospallione.nina.entities.Caja;
 import com.estudiospallione.nina.entities.Cheque;
 import com.estudiospallione.nina.error.ErrorException;
 import com.estudiospallione.nina.repositories.ChequeRepository;
@@ -20,6 +22,19 @@ public class ChequeService {
 		return repo.findAll();
 	}
 
+	public List<Cheque> listarChequesSinCaja() {
+		return repo.listarChequesSinCaja();
+	}
+	
+	public Cheque buscarChequeId(String id) {
+		Optional<Cheque> optional = repo.findById(id);
+		if (optional.isPresent()) {
+			return optional.get();
+		} else {
+			return null;
+		}
+	}
+	
 	// DEVUELVE TRUE SI ALGÚN ELEMENTO DEL CHEQUE ESTÁ COMPLETO (ASÍ SABEMOS SI HAY
 	// QUE CONSIDERARLO O NO
 	public Boolean validar(String numero, String fecha, String banco, String sucursal, Long cuit, Float importe) {
@@ -59,4 +74,10 @@ public class ChequeService {
 		repo.save(cheque);
 	}
 
+	@Transactional
+	public void actualizarCheque(Cheque cheque, Caja caja) {
+		cheque.setCaja(caja);
+		repo.save(cheque);
+	}
+	
 }

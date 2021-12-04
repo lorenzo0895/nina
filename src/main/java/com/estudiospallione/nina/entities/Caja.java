@@ -114,6 +114,12 @@ public class Caja {
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
 	}
+	@Override
+	public String toString() {
+		return "Caja [idCaja=" + idCaja + ", fecha=" + fecha + ", cliente=" + cliente + ", detalle=" + detalle
+				+ ", efectivo=" + efectivo + ", transferencia=" + transferencia + ", listaCheques=" + listaCheques
+				+ ", listaModificaciones=" + listaModificaciones + ", activo=" + activo + "]";
+	}
 	
 	
 

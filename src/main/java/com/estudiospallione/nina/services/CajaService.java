@@ -27,7 +27,10 @@ public class CajaService {
 
 	@Autowired
 	ModificacionRepository modificacionRepo;
-
+	
+	@Autowired
+	ChequeService chequeServicio;
+	
 	@Autowired
 	FechaService fechaService;
 
@@ -63,6 +66,7 @@ public class CajaService {
 		if (efectivo == 0 && transferencia == 0) {
 			throw new ErrorException("Debe ingresar algún monto.");
 		}
+		
 		Caja caja = new Caja();
 		caja.setFecha(f1);
 		caja.setCliente(cliente);
@@ -73,7 +77,12 @@ public class CajaService {
 		caja.setListaModificaciones(listaModificacioes);
 		caja.setActivo(true);
 
+		System.out.println(caja);
+		
 		cajaRepo.save(caja);
+		for (Cheque cheque : listaCheques) {
+			chequeServicio.actualizarCheque(cheque, caja);
+		}
 
 	}
 
