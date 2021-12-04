@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+	<div th:replace="link">
+		<link rel="stylesheet" href="/css/general.css">
+		<link rel="stylesheet" href="/css/nav.css">
+		<link rel="icon" href="/images/6_00001_1.ico" type="image/x-icon">
+	</div>
+
+	<div th:fragment="fondo" class="montain"></div>
+
+	<nav th:fragment="nav" class="nav">
+		<ul>
+			<li><a href="/login"><img class="logo" src="/images/logo-spallione-negro.png" alt=""></a></li>
+			<li class="ocultar"><a href="/login">Estudio Impositivo Spallione</a></li>
+		</ul>
+		<ul class="ocultar">
+
+			<li th:if="${session.usersession != null}"><a href="/cliente">Clientes</a></li>
+			<li th:if="${session.usersession != null}"><a href="/aft">AFT</a></li>
+			<li th:if="${session.usersession != null && session.usersession.permiso_modificar_usuarios}"><a
+					href="/usuario">Usuarios</a></li>
+			<li th:if="${session.usersession != null}"><a th:text="${session.usersession.nombre}" href="/perfil"></a>
+			</li>
+			<li th:if="${session.usersession != null}"><a href="/logout">Cerrar sesión</a></li>
+
+		</ul>
+	</nav>
+
+</body>
+
+</html>

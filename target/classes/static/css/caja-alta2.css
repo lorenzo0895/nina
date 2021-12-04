@@ -1,0 +1,84 @@
+section {
+    margin-bottom: 20px;
+}
+
+.datos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#detalle {
+	width: 810px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-left: 0; 
+}
+
+.form-control,
+.form-select {
+	width: 400px;
+}
+
+#container2, #container3, #container4, #containerCheque2, 
+#containerCheque3, #containerCheque4 {
+    display: none;
+}
+
+.btn-outline-secondary {
+	margin-top: 0;	
+}
+
+#agregarInput, #sacarInput, #agregarInputCheque, #sacarInputCheque {
+    height: 20px;
+    filter:invert(100%);
+}
+#agregarInput, #agregarInputCheque {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#sacarInput, #sacarInputCheque {
+    opacity: 0.2;
+}
+
+.cheques > .form-control{
+    width: 200px;
+}
+.difuso {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(158, 157, 159, 0.4);
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+.formConcepto {
+	height: 300px;
+	width: 500px;
+	position: relative;
+	background: var(--color-oscuro);
+	border-radius: 15px;
+	padding: 40px 30px;
+}
+.formConcepto input {
+	width: 100%;
+}
+.formConcepto button {
+	position: absolute;
+	bottom: 40px;
+	right: 30px;
+}
+.cerrarConcepto {
+	height: 15px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}

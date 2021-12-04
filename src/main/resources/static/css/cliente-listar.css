@@ -1,0 +1,29 @@
+.btn {
+    width: 100px;
+}
+
+.oculto {
+    -webkit-text-security:disc;
+}
+
+.nobtn {
+    background: transparent;
+    border: none;
+    filter: invert(1);
+}
+
+.hide {
+    height: 20px;
+}
+
+#agregarCliente {
+    height: 20px;
+    filter:invert(100%);
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .desaparecer {
+		display: none;
+	}
+}

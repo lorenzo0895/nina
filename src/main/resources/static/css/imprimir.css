@@ -1,0 +1,76 @@
+:root {
+    --indice: 1;
+    --altoImpresion: calc(var(--indice) * 100vh);
+    --anchoImpresion: calc(var(--indice) * 70.7vh);
+    --textoH1: calc(var(--indice) * 15px);
+    --textoGeneral: calc(var(--indice) * 10px);
+    --color: rgb(41, 41, 41);
+    --colorBordes: gray;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color);
+    font-size: var(--textoGeneral);
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    background: white;
+}
+
+.impresion {
+    height: var(--altoImpresion);
+    width: var(--anchoImpresion);
+    padding: 2% 3%;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--colorBordes);
+}
+
+.encabezado {
+    width: 100%;
+    padding: 3% 0;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px var(--colorBordes);
+}
+
+.logo {
+    width: 20%;
+    opacity: 70%;
+    margin-right: 4%;
+}
+
+.comprobante {
+    margin-top: 3%;
+}
+
+h1 {
+    font-size: var(--textoH1);
+}
+
+p {
+    margin: 2% 0;
+}
+
+@media print {
+    body {
+        zoom: calc(100% / var(--indice));
+    }
+    .impresion {
+        border: none;
+    }
+    @page {
+        margin: 0;
+        size: auto;
+    }
+    @page {
+        size: A4 portrait;
+    }
+        
+}

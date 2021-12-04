@@ -1,0 +1,129 @@
+section {
+    margin-bottom: 20px;
+}
+
+.datos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#detalle {
+	width: 810px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-left: 0; 
+}
+
+.form-control,
+.form-select {
+	width: 400px;
+}
+
+#container2, #container3, #container4, #containerCheque2, 
+#containerCheque3, #containerCheque4 {
+    display: none;
+}
+
+.btn-outline-secondary {
+	margin-top: 0;	
+}
+
+.abrirEmergente {
+    height: 20px;
+    filter:invert(100%);
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.cheques > .form-control{
+    width: 200px;
+}
+.difuso {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(158, 157, 159, 0.4);
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+.listaCheques {
+	height: 70vh;
+	width: 80vw;
+	position: relative;
+	background: var(--color-oscuro);
+	border-radius: 15px;
+	padding: 40px 30px;
+	overflow: hidden;
+}
+
+.chequeInline {
+	display: flex;
+	align-items: center;
+}
+
+#nuevoCheque {
+	margin-left: 20px;
+}
+
+.tablaDeCheques {
+	height: 80%;
+	overflow-y: scroll;
+}
+
+.tablaDeCheques::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.tablaDeCheques::-webkit-scrollbar:vertical {
+    width:10px;
+}
+.tablaDeCheques::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.tablaDeCheques::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.tablaDeCheques::-webkit-scrollbar-thumb {
+    background-color: rgb(40, 40, 40);
+    border-radius: 20px;
+    border: 2px solid rgb(83, 83, 83);
+}
+
+.tablaDeCheques::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+.listaCheques input {
+	width: 100%;
+}
+.listaCheques button {
+	position: absolute;
+	bottom: 40px;
+	right: 30px;
+}
+.cerrarConcepto {
+	height: 15px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+/*.difuminado {
+	height: 100px;
+	width: 100%;
+	position: absolute;
+	background: linear-gradient(rgba(35, 38, 42, 0) 20%, rgb(35, 38, 42) 80%);
+	bottom: 0;
+	left:0;
+	z-index: 4;
+}*/

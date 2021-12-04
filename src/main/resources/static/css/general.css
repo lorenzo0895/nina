@@ -1,0 +1,115 @@
+:root {
+    --color-principal: rgb(179, 179, 179);
+    --color-hover: rgb(203, 203, 203);
+    --color-oscuro: #23262a;
+    --background-input: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color-principal);
+}
+
+body {
+    min-height: 100vh;
+    background: #2d3136;
+    padding-top: 50px;
+}
+
+main {
+    padding: 40px;
+}
+
+.montain {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: top;
+    z-index: -1;
+    background: url("../images/mountain_PNG18.png") no-repeat center center / cover;
+    filter: opacity(0.3);
+}
+
+.form-control,
+.form-select {
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    color: rgb(179, 179, 179);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.form-control:disabled {
+    background: var(--background-input);
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    color: var(--color-principal);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: var(--background-input);
+    border: solid 1px rgba(255, 255, 255, 0.6);
+    color: var(--color-principal);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+input[type=number] {
+    text-align: right;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.switch {
+    height: 15px;
+    width: 30px;
+    position: relative;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+.switch:checked {
+    background: #03a9f4;
+}
+.switch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.switch:checked:before {
+    left: 15px;
+}
+
+td, th {
+    vertical-align: middle;
+}
+td .btn {
+	margin: 0;
+}
+.alert {
+	display: inline-block;
+}

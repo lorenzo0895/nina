@@ -1,0 +1,67 @@
+:root {
+    --color-principal: rgb(179, 179, 179);
+    --color-hover: rgb(203, 203, 203);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color-principal);
+}
+
+body {
+    height: 100vh;
+    background: #2d3136;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.montain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    background: url("../images/mountain_PNG18.png") no-repeat center center / cover;
+    filter: opacity(0.3);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-principal);
+}
+a:hover {
+    color: var(--color-hover);
+}
+
+.recuadro {
+    width: 500px;
+    height: 400px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    text-align: center;
+    width: 70%;
+}
+
+.btn {
+	margin-top: 0;
+	margin-bottom: 20px;
+}

@@ -1,0 +1,23 @@
+.contenido {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+section {
+    margin-bottom: 10px;
+}
+
+.form-control {
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+    .contenido {
+        grid-template-columns: auto;
+    }
+}

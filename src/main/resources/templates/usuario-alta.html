@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <div th:replace="fragments/general.html :: link"></div>
+    <link rel="stylesheet" href="/css/usuario-alta.css">
+    <title>Alta Usuario</title>
+</head>
+
+<body>
+
+    <div th:replace="fragments/general.html :: fondo"></div>
+    <nav th:replace="fragments/general.html :: nav"></nav>
+    
+    <main>
+        <form action="/new-user" method="POST">
+            <h1>Alta de usuario</h1>
+            <p class="alert alert-danger" role="alert" th:if="${error != null}" th:text="${error}"></p>
+            <div class="contenido">
+                <section>
+                    <h2>Datos</h2>
+                    <input name="username" th:value="${username}" type="text" class="form-control input" id="text" placeholder="usuario" autocomplete="off">
+                    <input name="nombre" th:value="${nombre}" type="text" class="form-control input" id="text" placeholder="nombre" autocomplete="off">
+                    <input name="password1" th:value="${password1}" type="password" class="form-control input" id="password" placeholder="contraseña">
+                    <input name="password2" th:value="${password2}" type="password" class="form-control input" id="password" placeholder="confirmar contraseña">
+                </section>
+                <section>
+                    <h2>Permisos</h2>
+                    <div class="div-check">
+                        <input name="permiso_abrir_dias" class="switch" type="checkbox">
+                        <span>Abrir días</span>
+                    </div>
+                    <div class="div-check">
+                        <input name="permiso_cerrar_dias" class="switch" type="checkbox">
+                        <span>Cerrar días</span>
+                    </div>
+                    <div class="div-check">
+                        <input name="permiso_ingresar" class="switch" type="checkbox" checked>
+                        <span>Ingresar comprobantes</span>
+                    </div>
+                    <div class="div-check">
+                        <input name="permiso_modificar" class="switch" type="checkbox">
+                        <span>Modificar comprobantes</span>
+                    </div>
+                    <div class="div-check">
+                        <input name="permiso_cerrar_modificaciones" class="switch" type="checkbox" checked>
+                        <span>Cerrar comprobantes</span>
+                    </div>
+                    <div class="div-check">
+                        <input name="permiso_modificar_usuarios" class="switch" type="checkbox">
+                        <span>Modificar usuarios</span>
+                    </div>
+                </section>
+                <section>
+                    <h2>Activo</h2>
+                    <div class="div-check">
+                        <input class="switch" type="checkbox" disabled>
+                        <span>Usuario inactivo (Pendiente de aprobación)</span>
+                    </div>
+                </section>
+            </div>
+            <button type="submit" class="btn btn-secondary">Solicitar alta</button>
+        </form>
+    </main>
+
+</body>
+
+</html>

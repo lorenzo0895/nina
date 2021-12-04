@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgb(179, 179, 179);
+}
+
+body {
+    min-height: 100vh;
+}
+
+aside {
+    height: 100vh;
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #111414;
+}
+
+main {
+    min-height: 100vh;
+    background: #1d2121;
+    margin-left: 280px;
+}
+
+form {
+    padding: 40px;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+section {
+    margin-bottom: 10px;
+}
+
+.form-control,
+.form-select {
+    width: 40%;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    color: rgb(179, 179, 179);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+input[type=number] {
+    text-align: right;
+}
+
+.form-control:disabled {
+    background: rgba(255, 255, 255, 0.05);
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    color: rgb(179, 179, 179);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border: solid 1px rgba(255, 255, 255, 0.6);
+    color: rgb(179, 179, 179);
+}
+
+.switch {
+    height: 15px;
+    width: 30px;
+    position: relative;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+.switch:checked {
+    background: #03a9f4;
+}
+.switch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.switch:checked:before {
+    left: 15px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.container {
+    padding: 0;
+    display: grid;
+    align-items: start;
+    grid-template-columns: 45% 20%;
+}
+
+.container > .form-control, .container > .form-select {
+    width: 90%;
+}
+
+#container2, #container3, #container4 {
+    display: none;
+}
+
+#agregarInput, #sacarInput {
+    height: 20px;
+    filter:invert();
+    position: relative;
+    top: -10px;
+}
+
+#sacarInput {
+    opacity: 0.2;
+}
+
+@media (max-width: 900px) {
+    .contenido {
+        grid-template-columns: auto;
+    }
+    aside {
+        height: 60px;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    main {
+        padding-top: 60px;
+        margin-left: 0;
+    }
+}

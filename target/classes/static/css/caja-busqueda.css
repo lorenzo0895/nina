@@ -1,0 +1,12 @@
+.form-control,
+.form-select {
+	width: 400px;
+}
+
+.btn {
+	width: 150px;
+}
+
+.fecha {
+	width: 200px;
+}
