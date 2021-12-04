@@ -23,6 +23,10 @@ section {
 	width: 400px;
 }
 
+.form-chicos {
+	width: 200px;
+}
+
 #container2, #container3, #container4, #containerCheque2, 
 #containerCheque3, #containerCheque4 {
     display: none;

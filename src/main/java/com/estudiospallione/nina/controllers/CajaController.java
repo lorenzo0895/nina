@@ -139,8 +139,9 @@ public class CajaController {
 
 	@PreAuthorize("hasAnyRole('ROLE_ACTIVO')")
 	@PostMapping("/alta")
-	public String altaPost(HttpSession httpSession, RedirectAttributes redirectAttributes,
-			@RequestParam(required = false) String fecha, @RequestParam(required = false) Cliente cliente,
+	public String altaIngresoFondo(HttpSession httpSession, RedirectAttributes redirectAttributes,
+			@RequestParam(required = false) String fecha,
+			@RequestParam(required = false) Cliente cliente,
 			@RequestParam(required = false) String detalle,
 			@RequestParam(defaultValue = "0") Double efectivo,
 			@RequestParam(defaultValue = "0") Double transferencia,
@@ -152,12 +153,11 @@ public class CajaController {
 			return "redirect:/aft";
 		}
 		List<Cheque> listaCheques = new ArrayList<Cheque>();
-		for (Cheque cheque : cheques) {
-			listaCheques.add(cheque);
+		if (cheques != null) {
+			for (Cheque cheque : cheques) {
+				listaCheques.add(cheque);
+			}
 		}
-		System.out.println(listaCheques);
-		System.out.println("");
-
 		// CREAMOS CAJA
 		try {
 			cajaServicio.alta(fecha, cliente, detalle, efectivo, transferencia, listaCheques, null);

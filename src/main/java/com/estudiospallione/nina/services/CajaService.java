@@ -62,8 +62,12 @@ public class CajaService {
 			throw new ErrorException("Debe brindar un detalle.");
 		}
 		
-		//VER DE ANALIZAR QUE HAYA CHEQUES CON PLATA TMB
-		if (efectivo == 0 && transferencia == 0) {
+		
+		Float sumador = 0f;
+		for (Cheque cheque : listaCheques) {
+			sumador = sumador + cheque.getImporte();
+		}
+		if (efectivo == 0 && transferencia == 0 && sumador == 0) {
 			throw new ErrorException("Debe ingresar algún monto.");
 		}
 		

@@ -35,10 +35,9 @@
 						th:text="${cliente2.apellido + ', ' + cliente2.nombre}"
 						th:selected="${cliente != null && cliente2.id_cliente == cliente.id_cliente}"></option>
 				</select>
-				<input th:value="${detalle}" type="text" class="form-control" id="detalle" placeholder="detalle"
-					name="detalle">
 			</section>
-
+			<input th:value="${detalle}" type="text" class="form-control" id="detalle" placeholder="detalle"
+				name="detalle">
 			<h2>Forma de pago</h2>
 			<section>
 				<div class="container">
@@ -56,11 +55,8 @@
 					Cheques
 					<img src="/images/plus.png" alt="agregar" class="abrirEmergente" onclick="abrirEmergente()">
 				</h3>
-				<div>
-					<input id="cheque1" name="cheque[]" class="form-control" type="text">
-					<input id="cheque2" name="cheque[]" class="form-control" type="text">
-					<input id="cheque3" name="cheque[]" class="form-control" type="text">
-					<input id="cheque4" name="chequelandia" class="form-control" type="text">
+				<div id="inputsCheques">
+
 				</div>
 				<div class="difuso" id="difuso">
 					<div class="listaCheques">
@@ -97,8 +93,9 @@
 									<td th:text="${cheque.cuit}"></td>
 									<td th:text="${#dates.format(cheque.fecha, 'dd/MM/yyyy')}"></td>
 									<td th:text="${cheque.importe}"></td>
-									<td><a class="btn btn-primary"
-											th:attr="onclick=|agregarCheque('${cheque.id_cheque}')|">Seleccionar</a>
+									<td><a class="btn btn-primary" th:attr="onclick=|agregarCheque('${cheque.id_cheque}','${cheque.numero}',
+											'${cheque.banco}','${cheque.cuit}','${#dates.format(cheque.fecha, 'dd/MM/yyyy')}',
+											'${cheque.importe}')|">Seleccionar</a>
 									</td>
 								</tr>
 							</table>
@@ -111,32 +108,64 @@
 	</main>
 	<script src="/js/app.js"></script>
 	<script>
-		var che1 = document.getElementById("cheque1");
-		var che2 = document.getElementById("cheque2");
-		var che3 = document.getElementById("cheque3");
-		var che4 = document.getElementById("cheque4");
+		var divCheque = document.getElementById("inputsCheques");
 
-		function agregarCheque(id_cheque) {
-			let row;
-			if (che1.value == "") {
-				che1.value = id_cheque;
-				row = document.getElementById(id_cheque);
-				row.hidden = true;
-			} else if (che2.value == "") {
-				che2.value = id_cheque;
-				row = document.getElementById(id_cheque);
-				row.hidden = true;
-			} else if (che3.value == "") {
-				che3.value = id_cheque;
-				row = document.getElementById(id_cheque);
-				row.hidden = true;
-			} else if (che4.value == "") {
-				che4.value = id_cheque;
-				row = document.getElementById(id_cheque);
-				row.hidden = true;
-			} else {
+		function agregarCheque(id_cheque, numero, banco, cuit, fecha, importe) {
 
-			}
+
+
+			let inputid = document.createElement("input");
+			inputid.type = "text";
+			inputid.name = "cheque[]";
+			inputid.className = "form-control";
+			inputid.value = id_cheque;
+			inputid.hidden = true;
+
+			let inputNumero = document.createElement("input");
+			inputNumero.type = "number";
+			inputNumero.className = "form-control form-chicos";
+			inputNumero.value = numero;
+			inputNumero.disabled = true;
+
+			let inputBanco = document.createElement("input");
+			inputBanco.type = "text";
+			inputBanco.className = "form-control form-chicos";
+			inputBanco.value = banco;
+			inputBanco.disabled = true;
+
+			let inputCUIT = document.createElement("input");
+			inputCUIT.type = "number";
+			inputCUIT.className = "form-control form-chicos";
+			inputCUIT.value = cuit;
+			inputCUIT.disabled = true;
+
+			let inputFecha = document.createElement("input");
+			inputFecha.type = "date";
+			inputFecha.className = "form-control form-chicos";
+			inputFecha.value = fecha;
+			inputFecha.disabled = true;
+
+			let inputImporte = document.createElement("input");
+			inputImporte.type = "number";
+			inputImporte.className = "form-control form-chicos";
+			inputImporte.value = importe;
+			inputImporte.disabled = true;
+
+
+
+			let div = document.createElement("div");
+			div.className = "datos";
+			div.appendChild(inputid);
+			div.appendChild(inputNumero);
+			div.appendChild(inputBanco);
+			div.appendChild(inputCUIT);
+			div.appendChild(inputFecha);
+			div.appendChild(inputImporte);
+
+			divCheque.appendChild(div);
+
+			let row = document.getElementById(id_cheque);
+			row.hidden = true;
 
 		}
 	</script>
